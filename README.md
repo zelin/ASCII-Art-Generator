@@ -5,8 +5,8 @@
 [![Donate](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](https://github.com/zelin/ASCII-Art-Generator)
 [![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/ASCII-Art-Generator)
 
-![Screenshot 1](./Screenshots/image_1.png)
-![Screenshot 2](./Screenshots/image_2.png)
+![Screenshot 1](./Screenshots/image_1.jpg)
+![Screenshot 2](./Screenshots/image_2.jpg)
 
 ## Installation
 
