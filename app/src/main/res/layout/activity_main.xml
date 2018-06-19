@@ -17,42 +17,51 @@
         />
 
     <ImageView
-        android:layout_above="@+id/convertBtn"
+        android:layout_above="@+id/mainLayout"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
        />
 
-    <Switch
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:id="@+id/switch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gray Scale "
-        />
-
-    <Switch
-        android:layout_below="@+id/switch2"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reverse Luminance "
-        />
-
     <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_above="@+id/fontLayout"
+        android:padding="4dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_below="@+id/switch1"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Switch
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gray Scale "
+            />
+
+        <Switch
+            android:layout_marginLeft="10dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reverse Luminance "
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/fontLayout"
+        android:layout_above="@+id/convertBtn"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
@@ -74,6 +83,7 @@
             />
 
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/convertBtn"

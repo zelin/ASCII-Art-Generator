@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image_two);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image);
                 try
                 {
                     converter.createASCIIImage(bitmap, new OnBitmapTaskListener()

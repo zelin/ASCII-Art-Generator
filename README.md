@@ -5,8 +5,8 @@
 [![Donate](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](https://github.com/zelin/ASCII-Art-Generator)
 [![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/ASCII-Art-Generator)
 
-![Screenshot 1](./Screenshots/cmdfm_01.jpg)
-![Screenshot 2](./Screenshots/cmdfm_02.jpg)
+![Screenshot 1](./Screenshots/image_1.png)
+![Screenshot 2](./Screenshots/image_2.png)
 
 ## Installation
 
@@ -28,7 +28,7 @@ Create a ASCIIConverter object
 ASCIIConverter converter = new ASCIIConverter();
 ```
 
-Convert synchronously
+Create ASCII from bitmap
 
 ```java
 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image);
@@ -52,8 +52,12 @@ converter.createASCIIImage(bitmap, new OnBitmapTaskListener()
 Convert to String
 ```java
 Log.d("ASCII-GENERATOR", converter.createASCIIString(bitmap));
+```
 
-// asynchronous
+Convert in the background async task providing a completion block. 
+Completion block will be called on the main thread.
+
+```java
 converter.createASCIIString(bitmap, new OnStringTaskListener()
 {
     @Override
@@ -114,7 +118,9 @@ map.put("@", 0.0f);
 converter = new ASCIIConverter(Activity.this, map)
 ```
 
-![Mapping example screenshot](./Screenshots/mappingExample.jpg)
+## Potential Improvements
+* Creating an ASCIIImageView to automatically generate ASCII from bitmap
+* Implementing more options for creating ASCII
 
 ## Author
 
