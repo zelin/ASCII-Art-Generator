@@ -299,7 +299,7 @@ public class ASCIIConverter
             }
         }
         else
-            new CreateASCIIString().execute(originalBitmap);
+            new CreateASCIIBitmap().execute(originalBitmap);
 
         return null;
     }

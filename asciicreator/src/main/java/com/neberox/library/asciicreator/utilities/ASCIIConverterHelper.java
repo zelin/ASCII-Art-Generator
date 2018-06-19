@@ -42,10 +42,10 @@ public class ASCIIConverterHelper
     private static Map<String, Float> createDefaultMap()
     {
         Map<String, Float> map = new HashMap<String, Float>();
-        map.put(" ", 1.0f);
+        map.put(".", 1.0f);
         map.put("`", 0.95f);
-        map.put(".", 0.92f);
-        map.put(",", 0.9f);
+        map.put(",", 0.92f);
+        map.put(",,", 0.9f);
         map.put("-", 0.8f);
         map.put("~", 0.75f);
         map.put("+", 0.7f);

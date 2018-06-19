@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -34,6 +35,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.neberox.library.asciicreator.ASCIIConverter;
+import com.neberox.library.asciicreator.utilities.OnBitmapTaskListener;
+import com.neberox.library.asciicreator.utilities.OnStringTaskListener;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -73,16 +76,38 @@ public class MainActivity extends AppCompatActivity
 
         converter = new ASCIIConverter(MainActivity.this, seekBar.getProgress() + SEEK_BAR_STEP);
 
+        converter.setFontSize(18);
+        converter.setReversedLuminance(false);
+        converter.setGrayScale(false);
+
         findViewById(R.id.convertBtn).setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image_two);
                 try
                 {
-                    //converter.setBackgroundColor(Color.LTGRAY);
-                    imgView.setImageBitmap(converter.createASCIIImage(bitmap));
+                    converter.createASCIIImage(bitmap, new OnBitmapTaskListener()
+                    {
+                        @Override
+                        public void onTaskCompleted(Bitmap data)
+                        {
+                            imgView.setImageBitmap(data);
+                        }
+                    });
+                    Log.d("ASCII-GENERATOR", converter.createASCIIString(bitmap));
+
+                    converter.createASCIIString(bitmap, new OnStringTaskListener()
+                    {
+                        @Override
+                        public void onTaskCompleted(String data)
+                        {
+                            Log.d("ASCII-GENERATOR", data);
+                        }
+                    });
+
+
                 }catch (Exception e)
                 {
                     Toast.makeText(MainActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
