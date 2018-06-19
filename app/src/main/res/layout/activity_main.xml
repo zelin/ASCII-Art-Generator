@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/black"
+    android:layout_height="match_parent"
+    tools:context="com.neberox.app.asciicreator.MainActivity">
+
+    <ImageView
+        android:id="@+id/mainImage"
+        android:visibility="invisible"
+        android:src="@drawable/test_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:layout_above="@+id/convertBtn"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
+
+    <Switch
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gray Scale "
+        />
+
+    <Switch
+        android:layout_below="@+id/switch2"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reverse Luminance "
+        />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@+id/switch1"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/fontText"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="Font"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <SeekBar
+            android:id="@+id/fontSeekBar"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/convertBtn"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="CONVERT"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:background="@color/colorPrimary"
+        />
+
+</RelativeLayout>
