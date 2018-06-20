@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/zelin/ASCII-Art-Generator)
 [![Platform](https://img.shields.io/badge/Platform-Android-orange.svg)](https://github.com/zelin/ASCII-Art-Generator)
 [![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/ASCII-Art-Generator)
-[![Donate Bitcoin](https://img.shields.io/badge/Donate-$2-green.svg)](http://neberox.tk/donate/?amount=2&currency=USD)
+[![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](http://neberox.tk/donate/?amount=2&currency=USD)
 
 ![Screenshot 1](./Screenshots/image_1.jpg)
 ![Screenshot 2](./Screenshots/image_2.jpg)
