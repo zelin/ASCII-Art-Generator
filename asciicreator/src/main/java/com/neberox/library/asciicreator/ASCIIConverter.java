@@ -69,9 +69,9 @@ public class ASCIIConverter
 
     private OnStringTaskListener mStringTaskListener;
     private OnBitmapTaskListener mBitmapTaskListener;
+
     /**
-     *
-     * @param mContext
+     * @param mContext  Context of the app
      */
     public ASCIIConverter(Context mContext)
     {
@@ -82,8 +82,8 @@ public class ASCIIConverter
 
     /**
      *
-     * @param mContext
-     * @param mHelper
+     * @param mContext  Context of the app
+     * @param mHelper   Customized ASCIIConverterHelper Class
      */
     public ASCIIConverter(Context mContext, ASCIIConverterHelper mHelper)
     {
@@ -93,9 +93,8 @@ public class ASCIIConverter
     }
 
     /**
-     *
-     * @param mContext
-     * @param mFontSize
+     * @param mContext  Context of the app
+     * @param mFontSize font size of the ascii text in bitmap
      */
     public ASCIIConverter(Context mContext, int mFontSize)
     {
@@ -107,9 +106,9 @@ public class ASCIIConverter
 
     /**
      *
-     * @param mContext
-     * @param mHelper
-     * @param mFontSize
+     * @param mContext  Context of the app
+     * @param mHelper   Customized ASCIIConverterHelper Class
+     * @param mFontSize font size of the ascii text in bitmap
      */
     public ASCIIConverter(Context mContext, ASCIIConverterHelper mHelper, int mFontSize)
     {
@@ -120,8 +119,7 @@ public class ASCIIConverter
     }
 
     /**
-     * Accepts key pair value of character and its luminance
-     * @param dictionary
+     * @param dictionary Accepts key pair value of character and its luminance
      */
     public ASCIIConverter(Map<String, Float> dictionary)
     {
@@ -138,8 +136,7 @@ public class ASCIIConverter
     }
 
     /**
-     * Enable to disable gray scale of the bitmap. Default is false to create colored ASCII Bitmap
-     * @param mGrayScale
+     * @param mGrayScale Enable to disable gray scale of the bitmap. Default is false to create colored ASCII Bitmap
      */
     public void setGrayScale(boolean mGrayScale)
     {
@@ -147,8 +144,7 @@ public class ASCIIConverter
     }
 
     /**
-     * Reverses the luminance by subtracting from 1. Default is false
-     * @param mReversedLuminance
+     * @param mReversedLuminance Reverses the luminance by subtracting from 1. Default is false
      */
     public void setReversedLuminance(boolean mReversedLuminance)
     {
@@ -156,8 +152,7 @@ public class ASCIIConverter
     }
 
     /**
-     * Set the font size in sp
-     * @param mFontSize
+     * @param mFontSize Set the font size in sp
      */
     public void setFontSize(float mFontSize)
     {
@@ -165,8 +160,7 @@ public class ASCIIConverter
     }
 
     /**
-     * Adds a background color to ASCII Bitmap. Default is transparent
-     * @param mBackgroundColor
+     * @param mBackgroundColor Adds a background color to ASCII Bitmap. Default is transparent
      */
     public void setBackgroundColor(int mBackgroundColor)
     {
@@ -182,9 +176,8 @@ public class ASCIIConverter
 
     /**
      * Creates an ASCII String of a bitmap
-     * @throws ExecutionException, InterruptedException, InvalidParameterException
-     * @param originalBitmap
-     * @return
+     * @param originalBitmap bitmap to create ASCII Bitmap
+     * @return returns ASCII String
      */
     public String createASCIIString(Bitmap originalBitmap) throws ExecutionException, InterruptedException, InvalidParameterException
     {
@@ -266,9 +259,8 @@ public class ASCIIConverter
 
     /**
      * Creates an ASCII String of a bitmap
-     * @param bitmap
-     * @throws ExecutionException, InterruptedException, InvalidParameterException
-     * @return
+     * @param bitmap bitmap to create ASCII Bitmap
+     * @return returns ASCII Bitmap
      */
 
     public Bitmap createASCIIImage(Bitmap bitmap) throws ExecutionException, InterruptedException, InvalidParameterException
@@ -369,8 +361,8 @@ public class ASCIIConverter
 
     /**
      *
-     * @param width
-     * @return
+     * @param width width of the image
+     * @return returns the columns count
      */
     private float getGridWidth(int width)
     {
@@ -382,8 +374,8 @@ public class ASCIIConverter
 
     /**
      *
-     * @param bitmap
-     * @return
+     * @param bitmap Bitmap for fetching rgba data
+     * @return returns grid containing rgba data of bitmap
      */
     private PixelGrid getGridData(Bitmap bitmap)
     {
