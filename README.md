@@ -14,7 +14,7 @@ The easiest way to add the library to your project is by adding it as a dependen
 
 ```ruby
 dependencies {
-    implementation 'com.neberox.library.asciicreator:0.0.1'
+   implementation 'com.neberox.library:asciicreator:0.0.1'
 }
 ```
 
