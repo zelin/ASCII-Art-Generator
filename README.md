@@ -14,7 +14,7 @@ The easiest way to add the library to your project is by adding it as a dependen
 
 ```ruby
 dependencies {
-   implementation 'com.neberox.library:asciicreator:0.0.1'
+   implementation 'com.neberox.library:asciicreator:0.1.0'
 }
 ```
 
@@ -24,53 +24,52 @@ dependencies {
 
 Create a ASCIIConverter object
 
-```java
-ASCIIConverter converter = new ASCIIConverter();
+```kotlin
+var converter: ASCIIConverter = ASCIIConverter(this);
 ```
 
 Create ASCII from bitmap
 
-```java
-Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image);
+```kotlin
+val bitmap = BitmapFactory.decodeResource(resources, R.drawable.test_image)
 imgView.setImageBitmap(converter.createASCIIImage(bitmap));
 ```
 
 Convert in the background async task providing a completion block. 
 Completion block will be called on the main thread.
 
-```java
-converter.createASCIIImage(bitmap, new OnBitmapTaskListener()
-{
-    @Override
-    public void onTaskCompleted(Bitmap data)
-    {
-        imgView.setImageBitmap(data);
+```kotlin
+converter.createASCIIImage(bitmap, object : OnBitmapTaskListener {
+        override fun onTaskCompleted(data: Bitmap?) {
+            // Switch to the main thread to update the UI
+            lifecycleScope.launch(Dispatchers.Main) {
+            binding.imageView.setImageBitmap(data)
+        }
     }
-});
+})
 ```
 
 Convert to String
-```java
+```kotlin
 Log.d("ASCII-GENERATOR", converter.createASCIIString(bitmap));
 ```
 
 Convert in the background async task providing a completion block. 
 Completion block will be called on the main thread.
 
-```java
-converter.createASCIIString(bitmap, new OnStringTaskListener()
-{
-    @Override
-    public void onTaskCompleted(String data)
-    {
-        Log.d("ASCII-GENERATOR", data);
+```kotlin
+converter.createASCIIString(bitmap, object : OnStringTaskListener {
+    override fun onTaskCompleted(data: String?) {
+        data?.let {
+            Log.d("ASCII-GENERATOR", it)
+        }
     }
-});
+})
 ```
 
 #### Options available
 
-```java
+```kotlin
 converter.setFontSize(18);
 converter.setReversedLuminance(false);
 converter.setGrayScale(false);
@@ -81,41 +80,41 @@ converter.setBackgroundColor(Color.RED);
 
 By default luminance values are mapped to strings using 
 
-```java
-Map<String, Float> map = new HashMap<String, Float>();
-map.put(" ", 1.0f);
-map.put("`", 0.95f);
-map.put(".", 0.92f);
-map.put(",", 0.9f);
-map.put("-", 0.8f);
-map.put("~", 0.75f);
-map.put("+", 0.7f);
-map.put("<", 0.65f);
-map.put(">", 0.6f);
-map.put("o", 0.55f);
-map.put("=", 0.5f);
-map.put("*", 0.35f);
-map.put("%", 0.3f);
-map.put("X", 0.1f);
-map.put("@", 0.0f);
+```kotlin
+val map: MutableMap<String, Float> = HashMap()
+map[" "] = 1.0f
+map["`"] = 0.95f
+map["."] = 0.92f
+map[","] = 0.9f
+map["-"] = 0.8f
+map["~"] = 0.75f
+map["+"] = 0.7f
+map["<"] = 0.65f
+map[">"] = 0.6f
+map["o"] = 0.55f
+map["="] = 0.5f
+map["*"] = 0.35f
+map["%"] = 0.3f
+map["X"] = 0.1f
+map["@"] = 0.0f
 ```
 
 You can instantiate a converter with your own map
 
-```java
-Map<String, Float> map = new HashMap<String, Float>();
-map.put(" ", 1.0f);
-map.put("`", 0.95f);
-map.put(",", 0.9f);
-map.put("-", 0.8f);
-map.put("+", 0.7f);
-map.put("<", 0.65f);
-map.put("o", 0.55f);
-map.put("=", 0.5f);
-map.put("%", 0.3f);
-map.put("@", 0.0f);
+```kotlin
+val map: MutableMap<String, Float> = HashMap()
+map[" "] = 1.0f
+map["`"] = 0.95f
+map[","] = 0.9f
+map["-"] = 0.8f
+map["+"] = 0.7f
+map["<"] = 0.65f
+map["o"] = 0.55f
+map["="] = 0.5f
+map["%"] = 0.3f
+map["@"] = 0.0f
 
-converter = new ASCIIConverter(Activity.this, map)
+converter = ASCIIConverter(Activity.this, map)
 ```
 
 ## Potential Improvements
